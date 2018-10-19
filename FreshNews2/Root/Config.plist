@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>apiKey</key>
+	<string>7e9be8c4ecde4e3fa218ebe6a49ec0b6</string>
+	<key>getSources</key>
+	<string>https://newsapi.org/v1/sources?language=en</string>
+	<key>getNewsWithSource</key>
+	<string>https://newsapi.org/v1/articles?source=[SOURCE]&amp;apiKey=[APIKEY]</string>
+</dict>
+</plist>
