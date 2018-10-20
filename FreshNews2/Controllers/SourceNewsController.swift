@@ -10,6 +10,10 @@ import UIKit
 
 class SourceNewsController: UITableViewController {
     
+    
+    // MARK: - Properties
+    public var source : SourceViewModel!
+    
     // MARK: - Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var noContentView: UIView!
@@ -17,14 +21,11 @@ class SourceNewsController: UITableViewController {
     @IBOutlet var noContentImageVIew: UIImageView!
     
 
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("inside source news controller  -> \(String(describing: source))")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

@@ -9,7 +9,7 @@
 import Foundation
 
 class SourcesViewModel {
-    var sources : [SourceViewModel] = [SourceViewModel]()
+    public var sources : [SourceViewModel] = [SourceViewModel]()
     private var webService = WebService()
     
     init(completion: @escaping () -> ()) {

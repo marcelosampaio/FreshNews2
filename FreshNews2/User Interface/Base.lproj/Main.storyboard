@@ -308,7 +308,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2520" y="174.29577464788733"/>
+            <point key="canvasLocation" x="2685" y="175"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q9I-xI-jI8">
@@ -336,6 +336,6 @@
         <image name="share2" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0uU-6e-dgx"/>
+        <segue reference="fSO-EE-UYr"/>
     </inferredMetricsTieBreakers>
 </document>

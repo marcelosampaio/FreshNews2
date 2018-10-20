@@ -55,6 +55,12 @@ class SourcesController: UITableViewController {
         
     }
 
+    // MARK: - TableView Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showSourceNews", sender: self)
+    }
+    
+    
     // MARK: - TableView Helper
     private func setNoContent(msg: String) {
         self.noContentLabel.text = msg
@@ -71,5 +77,17 @@ class SourcesController: UITableViewController {
             self.activityIndicator.stopAnimating()
         }
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSourceNews" {
+            let controller = segue.destination as! SourceNewsController
+            let indexPath = tableView.indexPathForSelectedRow
+            var selectedSource : SourceViewModel!
+            selectedSource = sources.sources[indexPath!.row]
+            controller.source = selectedSource
+        }
+    }
+    
     
 }
