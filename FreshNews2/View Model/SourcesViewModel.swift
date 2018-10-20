@@ -17,9 +17,9 @@ class SourcesViewModel {
             // completion
             if webContent.status == "ok" && webContent.sources.count > 0 {
                 self.sources = webContent.sources.map(SourceViewModel.init)
-                DispatchQueue.main.async {
-                    completion()
-                }
+            }
+            DispatchQueue.main.async {
+                completion()
             }
         }
     }

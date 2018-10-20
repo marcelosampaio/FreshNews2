@@ -19,6 +19,22 @@ class WebService {
         // request web service
         URLSession.shared.dataTask(with: url!) {
             data, response, error in
+            
+            // check response's status code
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode != 200 {
+                    completion(WebContent(dictionary: NSDictionary()))
+                    return
+                }
+            }
+            
+            // check error
+            if error != nil {
+                completion(WebContent(dictionary: NSDictionary()))
+                return
+            }
+            
+            // check data retrieved
             if let data = data {
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 let dataDic : NSDictionary = json as! NSDictionary
