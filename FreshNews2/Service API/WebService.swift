@@ -42,7 +42,8 @@ class WebService {
                     completion(WebContent(dictionary: dataDic))
                 }
             }
-            }.resume()
+            
+        }.resume()
     }
     
     
