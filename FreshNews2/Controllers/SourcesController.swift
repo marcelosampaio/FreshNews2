@@ -39,9 +39,10 @@ class SourcesController: UITableViewController {
             
 //                cell.sourcesTitle.text = vm.name
 //                cell.sourcesDescription.text = vm.description
-                cell.sourceName.text = "News Provider"
-                cell.sourceDescription.text = vm.name
+                cell.sourceName.text = vm.name
                 cell.sourceDescription.text = vm.description
+                cell.sourceCategory.text = vm.category
+                cell.sourceDate.text = vm.country
             
                 
             })

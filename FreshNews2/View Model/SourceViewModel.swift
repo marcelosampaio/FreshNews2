@@ -11,9 +11,13 @@ import Foundation
 class SourceViewModel {
     var name : String!
     var description : String!
+    var category : String!
+    var country : String!
     
     init(source: Source) {
         self.name = source.name
         self.description = source.description
+        self.category = source.category
+        self.country = source.country
     }
 }
