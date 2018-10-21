@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9C63B5D5217CBF16002D423B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63B5D4217CBF16002D423B /* Article.swift */; };
 		9C63B5D7217CC227002D423B /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63B5D6217CC227002D423B /* News.swift */; };
+		9C63B5DB217D02E3002D423B /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63B5DA217D02E3002D423B /* ArticlesViewModel.swift */; };
+		9C63B5DD217D02F6002D423B /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63B5DC217D02F6002D423B /* ArticleViewModel.swift */; };
 		9C73C6B8217A6A3C00ACCBC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73C6B7217A6A3C00ACCBC8 /* AppDelegate.swift */; };
 		9C73C6C2217A6A4300ACCBC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C73C6C0217A6A4300ACCBC8 /* LaunchScreen.storyboard */; };
 		9C73C6CC217A6B4400ACCBC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C73C6CA217A6B4400ACCBC8 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		9C63B5D4217CBF16002D423B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		9C63B5D6217CC227002D423B /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		9C63B5DA217D02E3002D423B /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
+		9C63B5DC217D02F6002D423B /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		9C73C6B4217A6A3B00ACCBC8 /* FreshNews2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshNews2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C73C6B7217A6A3C00ACCBC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C73C6C1217A6A4300ACCBC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +63,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C63B5D8217D02A1002D423B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9C73C6DA217A7D4400ACCBC8 /* SourcesViewModel.swift */,
+				9C73C6DB217A7D4500ACCBC8 /* SourceViewModel.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		9C63B5D9217D02B8002D423B /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				9C63B5DA217D02E3002D423B /* ArticlesViewModel.swift */,
+				9C63B5DC217D02F6002D423B /* ArticleViewModel.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
 		9C73C6AB217A6A3B00ACCBC8 = {
 			isa = PBXGroup;
 			children = (
@@ -121,8 +143,8 @@
 		9C73C6D7217A7D1500ACCBC8 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				9C73C6DA217A7D4400ACCBC8 /* SourcesViewModel.swift */,
-				9C73C6DB217A7D4500ACCBC8 /* SourceViewModel.swift */,
+				9C63B5D8217D02A1002D423B /* Source */,
+				9C63B5D9217D02B8002D423B /* Article */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -247,6 +269,7 @@
 				9C73C6E8217A7E6600ACCBC8 /* WebContent.swift in Sources */,
 				9C73C6D6217A6CBC00ACCBC8 /* SourceNewsController.swift in Sources */,
 				9C73C6F0217A7F1700ACCBC8 /* NewsTableViewCell.swift in Sources */,
+				9C63B5DD217D02F6002D423B /* ArticleViewModel.swift in Sources */,
 				9C73C6E2217A7DCE00ACCBC8 /* WebService.swift in Sources */,
 				9C73C6E9217A7E6600ACCBC8 /* Source.swift in Sources */,
 				9C73C6D4217A6C8C00ACCBC8 /* SourcesController.swift in Sources */,
@@ -257,6 +280,7 @@
 				9C73C6F5217A7F9200ACCBC8 /* TableViewDataSource.swift in Sources */,
 				9C63B5D7217CC227002D423B /* News.swift in Sources */,
 				9C73C6B8217A6A3C00ACCBC8 /* AppDelegate.swift in Sources */,
+				9C63B5DB217D02E3002D423B /* ArticlesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

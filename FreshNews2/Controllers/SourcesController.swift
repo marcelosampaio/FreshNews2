@@ -17,7 +17,7 @@ class SourcesController: UITableViewController {
     
     // MARK: - Properties
     private var sources : SourcesViewModel!
-    private var dataSource : TableViewDataSource<SourceTableViewCell,SourceViewModel>!
+    private var dataSource : TableViewDataSource<SourceTableViewCell, SourceViewModel>!
     private var cellIdentifier = "Cell"
 
     // MARK: - View Life Cycle
