@@ -14,6 +14,8 @@ class SourceNewsController: UITableViewController {
     // MARK: - Properties
     public var source : SourceViewModel!
     
+    private var webService = WebService()
+    
     // MARK: - Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var noContentView: UIView!
@@ -24,9 +26,20 @@ class SourceNewsController: UITableViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("inside source news controller  -> \(String(describing: source))")
+//        print("inside source news controller  -> \(String(describing: source))")
+        
+        webService.getNews(sourceId: source.id!) { (articles) in
+            // completion
+            print("........... articles: \(articles)")
+            print("....")
+        }
 
     }
+    
+    
+    
+    
+    
 
     // MARK: - Table view data source
 
