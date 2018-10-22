@@ -58,7 +58,7 @@ class SourceNewsController: UITableViewController {
                 
             })
             self.tableView.dataSource = self.dataSource
-            // no content view 
+            
             if self.articles.articles.count == 0 {
                 self.setNoContent(msg: "No articles!")
             }else{
