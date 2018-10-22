@@ -58,11 +58,11 @@ class SourceNewsController: UITableViewController {
                 
             })
             self.tableView.dataSource = self.dataSource
-//            if self.articles.count == 0 {
-//                self.setNoContent(msg: "No articles!")
-//            }else{
-//                self.tableView.tableHeaderView = nil
-//            }
+            if self.articles.articles.count == 0 {
+                self.setNoContent(msg: "No articles!")
+            }else{
+                self.tableView.tableHeaderView = nil
+            }
             self.setActivityIndicator(show: false)
             self.tableView.reloadData()
         })
