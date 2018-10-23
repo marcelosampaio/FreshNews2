@@ -168,7 +168,19 @@ class SourceNewsController: UITableViewController {
 //        let content = transientObj.title! + "   -> " + transientObj.articleUrl!
         
         let i = Int(rowIndex)
-        self.displayShareSheet(shareContent: articles.articles[i!].url!)
+        var content = String()
+        var articleTitle = String()
+        var articleUrl = String()
+        
+        if !articles.articles[i!].title!.isEmpty {
+            articleTitle = articles.articles[i!].title!
+        }
+        
+        if !articles.articles[i!].url!.isEmpty {
+            articleUrl = articles.articles[i!].url!
+        }
+        content = articleTitle + " - " + articleUrl
+        self.displayShareSheet(shareContent: content)
     }
     
     // MARK: - Share Sheet Helper
