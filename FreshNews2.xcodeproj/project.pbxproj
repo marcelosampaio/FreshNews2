@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B169E877ADD286768FDCCE7 /* Pods_FreshNews2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F4033115129BE78AC05D62 /* Pods_FreshNews2.framework */; };
 		9C63B5D5217CBF16002D423B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63B5D4217CBF16002D423B /* Article.swift */; };
 		9C63B5D7217CC227002D423B /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63B5D6217CC227002D423B /* News.swift */; };
 		9C63B5DB217D02E3002D423B /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63B5DA217D02E3002D423B /* ArticlesViewModel.swift */; };
@@ -29,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01C49282D3F31326DD90A196 /* Pods-FreshNews2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreshNews2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FreshNews2/Pods-FreshNews2.debug.xcconfig"; sourceTree = "<group>"; };
+		8FC9675F769BB8E2D3C2888C /* Pods-FreshNews2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreshNews2.release.xcconfig"; path = "Pods/Target Support Files/Pods-FreshNews2/Pods-FreshNews2.release.xcconfig"; sourceTree = "<group>"; };
+		95F4033115129BE78AC05D62 /* Pods_FreshNews2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreshNews2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C63B5D4217CBF16002D423B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		9C63B5D6217CC227002D423B /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		9C63B5DA217D02E3002D423B /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
@@ -57,12 +61,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B169E877ADD286768FDCCE7 /* Pods_FreshNews2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29D644D15B5DDEF1C65CE661 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01C49282D3F31326DD90A196 /* Pods-FreshNews2.debug.xcconfig */,
+				8FC9675F769BB8E2D3C2888C /* Pods-FreshNews2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4FCCA20EF1300582B9A96AC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95F4033115129BE78AC05D62 /* Pods_FreshNews2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9C63B5D8217D02A1002D423B /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +108,8 @@
 			children = (
 				9C73C6B6217A6A3C00ACCBC8 /* FreshNews2 */,
 				9C73C6B5217A6A3B00ACCBC8 /* Products */,
+				29D644D15B5DDEF1C65CE661 /* Pods */,
+				4FCCA20EF1300582B9A96AC6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C73C6C6217A6A4300ACCBC8 /* Build configuration list for PBXNativeTarget "FreshNews2" */;
 			buildPhases = (
+				DB528D8DDA83B355132784AE /* [CP] Check Pods Manifest.lock */,
 				9C73C6B0217A6A3B00ACCBC8 /* Sources */,
 				9C73C6B1217A6A3B00ACCBC8 /* Frameworks */,
 				9C73C6B2217A6A3B00ACCBC8 /* Resources */,
+				87949682B57408C4B5CE908E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +286,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		87949682B57408C4B5CE908E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FreshNews2/Pods-FreshNews2-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FreshNews2/Pods-FreshNews2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB528D8DDA83B355132784AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FreshNews2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C73C6B0217A6A3B00ACCBC8 /* Sources */ = {
@@ -424,16 +489,14 @@
 		};
 		9C73C6C7217A6A4300ACCBC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01C49282D3F31326DD90A196 /* Pods-FreshNews2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U294U2N56;
 				INFOPLIST_FILE = FreshNews2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAS.FreshNews2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -443,16 +506,14 @@
 		};
 		9C73C6C8217A6A4300ACCBC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC9675F769BB8E2D3C2888C /* Pods-FreshNews2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U294U2N56;
 				INFOPLIST_FILE = FreshNews2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAS.FreshNews2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

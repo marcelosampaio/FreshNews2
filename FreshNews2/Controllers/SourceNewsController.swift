@@ -8,6 +8,8 @@
 
 
 import UIKit
+import Kingfisher
+
 
 class SourceNewsController: UITableViewController {
     
@@ -51,12 +53,31 @@ class SourceNewsController: UITableViewController {
             self.dataSource = TableViewDataSource(cellIdentifier: self.cellIdentifier, items:self.articles.articles, configureCell: { (cell, vm) in
                 // completion
                 cell.articleTitle.text = vm.title
-//                cell.articleImageView
                 cell.articleDescription.text = vm.description
                 cell.articlePublishDate.text = vm.publishedAt
 //                cell.articleFavoriteIcon
                 
-                
+                // article image
+                if (vm.urlToImage != nil) {
+                    
+                    let imgSrc = vm.urlToImage
+                    
+                    print("****** imageUrl: \(vm.urlToImage!)")
+                    print(".....")
+                    
+                    let url = URL(string: imgSrc!)
+
+                    if imgSrc?.isEmpty == nil  {
+                        cell.articleImageView.contentMode = UIView.ContentMode.scaleAspectFit
+                        cell.articleImageView.image = UIImage(named: "noContentIcon")
+
+                    }else{
+                        cell.articleImageView.kf.indicatorType = .activity
+                        cell.articleImageView.kf.setImage(with: url)
+                    }
+                    
+                }
+    
             })
             self.tableView.dataSource = self.dataSource
             // check 3
