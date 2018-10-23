@@ -114,7 +114,17 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         
     }
     
-    
+    // MARK: - TableView Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let article = self.articles.articles[indexPath.row].url!
+        let url = URL(string: article)
+        UIApplication.shared.open(url!, options: [:]) { (success) in
+            // completion
+        }
+//        UIApplication.shared.openURL(url!)
+        
+    }
 
     // MARK: - TableView Helper
     private func setNoContent(msg: String) {
