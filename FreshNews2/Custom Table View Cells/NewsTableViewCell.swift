@@ -8,8 +8,17 @@
 
 import UIKit
 
+
+protocol NewsTableViewCellDelegate: class {
+    func didSelectShare(rowIndex: String)
+}
+
+
 class NewsTableViewCell: UITableViewCell {
 
+    // MARK: - Properties
+    weak var delegate: NewsTableViewCellDelegate?
+    
     
     // MARK: - Outlets
     @IBOutlet var articleImageView: UIImageView!
@@ -36,18 +45,11 @@ class NewsTableViewCell: UITableViewCell {
     
     // MARK: - UI Actions
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-//        print("******* FAVORITE BUTTON WAS TAPPED  row: \(indexPath.row)")
-//
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didChangeFavoriteValue"),
-//                                        object: indexPath,
-//                                        userInfo: nil)
+
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didSelectShare"),
-                                        object: rowIndex,
-                                        userInfo: nil)
-        
+        delegate?.didSelectShare(rowIndex: rowIndex)        
     }
 
     

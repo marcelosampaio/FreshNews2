@@ -11,7 +11,7 @@ import UIKit
 import Kingfisher
 
 
-class SourceNewsController: UITableViewController {
+class SourceNewsController: UITableViewController, NewsTableViewCellDelegate {
     
     
     // MARK: - Properties
@@ -40,14 +40,13 @@ class SourceNewsController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.setNoContent(msg: "Loading...")
         self.setActivityIndicator(show: true)
-        setUpObservers()
         // load app data
         loadAppData()
 
     }
     
     
-    // MARK: Application Data Source
+    // MARK: - Application Data Source
     private func loadAppData() {
         
         self.articles = ArticlesViewModel(sourceId: source.id!, completion: {
@@ -61,7 +60,7 @@ class SourceNewsController: UITableViewController {
                 cell.rowIndex = rowIndex
                 i = i + 1
                 
-                
+                cell.delegate = self
                 cell.articleTitle.text = vm.title
                 cell.articleDescription.text = vm.description
                 cell.articlePublishDate.text = vm.publishedAt
@@ -134,39 +133,10 @@ class SourceNewsController: UITableViewController {
         }
     }
     
-    // MARK: - Observer Manager
-    private func setUpObservers() {
-        
-//        // did change favorite value (favorite button was tapped)
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(didChangeFavoriteValue),
-//                                               name: NSNotification.Name(rawValue: "didChangeFavoriteValue"),
-//                                               object: nil)
-//
-//
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(didSelectShare),
-                                               name: NSNotification.Name(rawValue: "didSelectShare"),
-                                               object: nil)
-        
-        
-        
-    }
     
     @objc private func didSelectShare(notification: NSNotification) {
         
         let rowIndex = notification.object as! String
-//        var transientObj = FavoriteRow()
-//
-//        if isFavorites {
-//            transientObj = self.favorites[indexPath.row]
-//        }else{
-//            let article = self.news[indexPath.row]
-//            transientObj = convertArticleInfoFavoriteLayout(article: article)
-//        }
-//
-//        let content = transientObj.title! + "   -> " + transientObj.articleUrl!
-        
         let i = Int(rowIndex)
         var content = String()
         var articleTitle = String()
@@ -188,4 +158,23 @@ class SourceNewsController: UITableViewController {
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         present(activityViewController, animated: true, completion: {})
     }
+    
+    // MARK: - NewsTableViewCell Delegate
+    func didSelectShare(rowIndex: String) {
+        let i = Int(rowIndex)
+        var content = String()
+        var articleTitle = String()
+        var articleUrl = String()
+        
+        if !articles.articles[i!].title!.isEmpty {
+            articleTitle = articles.articles[i!].title!
+        }
+        
+        if !articles.articles[i!].url!.isEmpty {
+            articleUrl = articles.articles[i!].url!
+        }
+        content = articleTitle + " - " + articleUrl
+        self.displayShareSheet(shareContent: content)
+    }
+    
 }
