@@ -61,10 +61,6 @@ class SourceNewsController: UITableViewController {
                 if (vm.urlToImage != nil) {
                     
                     let imgSrc = vm.urlToImage
-                    
-                    print("****** imageUrl: \(vm.urlToImage!)")
-                    print(".....")
-                    
                     let url = URL(string: imgSrc!)
 
                     if imgSrc?.isEmpty == nil  {
