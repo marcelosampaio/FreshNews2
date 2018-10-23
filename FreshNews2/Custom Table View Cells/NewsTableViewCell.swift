@@ -19,7 +19,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet var articleFavoriteIcon: UIButton!
     
     // MARK: - Parameters
-    public var indexPath = NSIndexPath()
+    public var rowIndex = String()
     public var isFavorite = false
     
     override func awakeFromNib() {
@@ -36,18 +36,16 @@ class NewsTableViewCell: UITableViewCell {
     
     // MARK: - UI Actions
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-        print("******* FAVORITE BUTTON WAS TAPPED  row: \(indexPath.row)")
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didChangeFavoriteValue"),
-                                        object: indexPath,
-                                        userInfo: nil)
+//        print("******* FAVORITE BUTTON WAS TAPPED  row: \(indexPath.row)")
+//
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didChangeFavoriteValue"),
+//                                        object: indexPath,
+//                                        userInfo: nil)
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        print("******* SHARE BUTTON WAS TAPPED  row: \(indexPath.row)")
-        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didSelectShare"),
-                                        object: indexPath,
+                                        object: rowIndex,
                                         userInfo: nil)
         
     }

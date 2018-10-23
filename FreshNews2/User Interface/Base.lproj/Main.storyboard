@@ -221,7 +221,7 @@
                                             </constraints>
                                             <state key="normal" image="share2"/>
                                             <connections>
-                                                <action selector="shareButtonPressed:" destination="wWS-gb-2JR" eventType="touchUpInside" id="ibM-r6-quf"/>
+                                                <action selector="shareButtonPressed:" destination="wWS-gb-2JR" eventType="touchUpInside" id="ytU-be-y3W"/>
                                             </connections>
                                         </button>
                                     </subviews>

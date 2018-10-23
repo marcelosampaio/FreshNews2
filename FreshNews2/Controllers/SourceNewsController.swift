@@ -22,6 +22,7 @@ class SourceNewsController: UITableViewController {
     private var dataSource : TableViewDataSource<NewsTableViewCell, ArticleViewModel>!
     
     private var cellIdentifier = "Cell"
+    private var selectedIndexPath = IndexPath()
     
     // MARK: - Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -39,6 +40,7 @@ class SourceNewsController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.setNoContent(msg: "Loading...")
         self.setActivityIndicator(show: true)
+        setUpObservers()
         // load app data
         loadAppData()
 
@@ -50,8 +52,16 @@ class SourceNewsController: UITableViewController {
         
         self.articles = ArticlesViewModel(sourceId: source.id!, completion: {
             // completion
+            var rowIndex = String()
+            var i = 0
             self.dataSource = TableViewDataSource(cellIdentifier: self.cellIdentifier, items:self.articles.articles, configureCell: { (cell, vm) in
                 // completion
+                
+                rowIndex = String(i)
+                cell.rowIndex = rowIndex
+                i = i + 1
+                
+                
                 cell.articleTitle.text = vm.title
                 cell.articleDescription.text = vm.description
                 cell.articlePublishDate.text = vm.publishedAt
@@ -106,7 +116,6 @@ class SourceNewsController: UITableViewController {
     }
     
     
-    
 
     // MARK: - TableView Helper
     private func setNoContent(msg: String) {
@@ -125,4 +134,46 @@ class SourceNewsController: UITableViewController {
         }
     }
     
+    // MARK: - Observer Manager
+    private func setUpObservers() {
+        
+//        // did change favorite value (favorite button was tapped)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(didChangeFavoriteValue),
+//                                               name: NSNotification.Name(rawValue: "didChangeFavoriteValue"),
+//                                               object: nil)
+//
+//
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didSelectShare),
+                                               name: NSNotification.Name(rawValue: "didSelectShare"),
+                                               object: nil)
+        
+        
+        
+    }
+    
+    @objc private func didSelectShare(notification: NSNotification) {
+        
+        let rowIndex = notification.object as! String
+//        var transientObj = FavoriteRow()
+//
+//        if isFavorites {
+//            transientObj = self.favorites[indexPath.row]
+//        }else{
+//            let article = self.news[indexPath.row]
+//            transientObj = convertArticleInfoFavoriteLayout(article: article)
+//        }
+//
+//        let content = transientObj.title! + "   -> " + transientObj.articleUrl!
+        
+        let i = Int(rowIndex)
+        self.displayShareSheet(shareContent: articles.articles[i!].url!)
+    }
+    
+    // MARK: - Share Sheet Helper
+    private func displayShareSheet(shareContent:String) {
+        let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: {})
+    }
 }
