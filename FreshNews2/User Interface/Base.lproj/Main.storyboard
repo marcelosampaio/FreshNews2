@@ -99,7 +99,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News Feed" id="K40-Of-Vex">
-                        <barButtonItem key="leftBarButtonItem" image="FavoriteYes" id="hZH-WW-fRB">
+                        <barButtonItem key="leftBarButtonItem" image="favoriteNo" id="hZH-WW-fRB">
                             <connections>
                                 <action selector="showFavoritesContent:" destination="ULf-s3-TMO" id="3r4-Zy-smE"/>
                             </connections>
@@ -330,7 +330,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FavoriteYes" width="25" height="23"/>
         <image name="favoriteNo" width="25" height="23"/>
         <image name="noContentIcon" width="512" height="512"/>
         <image name="share2" width="512" height="512"/>

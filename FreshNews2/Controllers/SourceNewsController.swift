@@ -58,7 +58,7 @@ class SourceNewsController: UITableViewController {
 //                cell.articleFavoriteIcon
                 
                 // article image
-                if (vm.urlToImage != nil) {
+                if (vm.urlToImage != nil && vm.urlToImage != "" ) {
                     
                     let imgSrc = vm.urlToImage
                     let url = URL(string: imgSrc!)
@@ -72,7 +72,24 @@ class SourceNewsController: UITableViewController {
                         cell.articleImageView.kf.setImage(with: url)
                     }
                     
+                }else{
+                    cell.articleImageView.contentMode = UIView.ContentMode.scaleAspectFit
+                    cell.articleImageView.image = UIImage(named: "noContentIcon")
                 }
+                
+                // Favorite Icon
+//                if self.favoriteNews[indexPath.row] {
+//                    let tempImage = UIImage(named: "FavoriteYes")
+//                    cell.articleFavoriteIcon.setImage(tempImage, for: UIControlState.normal)
+//                    cell.isFavorite = true
+//                }else{
+                    let tempImage = UIImage(named: "favoriteNo")
+                cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
+                cell.isFavorite = false
+//                }
+                
+                
+                
     
             })
             self.tableView.dataSource = self.dataSource
