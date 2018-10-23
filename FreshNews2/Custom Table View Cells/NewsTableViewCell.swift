@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol NewsTableViewCellDelegate: class {
+protocol NewsTableViewCellProtocol: class {
     func didSelectShare(rowIndex: String)
 }
 
@@ -17,7 +17,7 @@ protocol NewsTableViewCellDelegate: class {
 class NewsTableViewCell: UITableViewCell {
 
     // MARK: - Properties
-    weak var delegate: NewsTableViewCellDelegate?
+    weak var delegate: NewsTableViewCellProtocol?
     
     
     // MARK: - Outlets
@@ -49,7 +49,7 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        delegate?.didSelectShare(rowIndex: rowIndex)        
+        delegate?.didSelectShare(rowIndex: rowIndex)
     }
 
     

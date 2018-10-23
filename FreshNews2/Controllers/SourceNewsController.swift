@@ -11,7 +11,7 @@ import UIKit
 import Kingfisher
 
 
-class SourceNewsController: UITableViewController, NewsTableViewCellDelegate {
+class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     
     // MARK: - Properties
