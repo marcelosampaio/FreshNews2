@@ -8,11 +8,22 @@
 
 
 import UIKit
+import CoreData
 import Kingfisher
 
 
 class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
+    // MARK: - Properties
+    public var moc : NSManagedObjectContext? {
+        didSet {
+            if let moc = moc {
+                favoriteService = FavoriteService(moc: moc)
+            }
+        }
+    }
+    
+    private var favoriteService : FavoriteService?
     
     // MARK: - Properties
     public var source : SourceViewModel!
@@ -34,15 +45,20 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.viewDidLoad()
+        
+        
+        coreDataStart()
+        print("......... STOPPED by Admin")
+        
         self.navigationItem.title = source.name!
         self.tableView.estimatedRowHeight = CGFloat(190)
         self.tableView.rowHeight = UITableView.automaticDimension
+        
         self.setNoContent(msg: "Loading...")
         self.setActivityIndicator(show: true)
         // load app data
         loadAppData()
-
+        
     }
     
     
@@ -186,5 +202,51 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         content = articleTitle + " - " + articleUrl
         self.displayShareSheet(shareContent: content)
     }
+    
+    // MARK: - Core Data
+    private func coreDataStart() {
+        
+//        // INSERT
+//        let article = Article(dictionary: NSDictionary())
+//        article.title = "THIS WILL BE DELETED"
+//        article.description = "Com a chegada do fim de ano é esperado um aumento nas vendas do setor de comercio"
+//        article.author = "MAS"
+//        article.publishedAt = "2010-01-01"
+//        article.url = "url do link"
+//        article.urlToImage = "imageUrl"
+//
+//        self.favoriteService?.addFavoriteArticle(article, completion: { (success, articles) in
+//            // completion
+//            if success {
+//                for article in articles {
+//                    print("** after insert ** title: \(String(describing: article.title!))")
+//                }
+//            }
+//        })
+//
+//
+//        // READ ALL with delete first
+//        let articles = self.favoriteService?.getAllArticles()
+//        for article in articles! {
+//            print("** read all with delete first ** title: \(article.title!)")
+//
+//            // DELETE
+//            self.favoriteService?.delete(favoriteArticle: article)
+//            break
+//        }
+        
+        
+        // READ ALL
+        let articlesX = self.favoriteService?.getAllArticles()
+        for article in articlesX! {
+            print("** read all ** title: \(article.title!)")
+        }
+
+        
+
+        
+    }
+    
+    
     
 }

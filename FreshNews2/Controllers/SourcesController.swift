@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
 class SourcesController: UITableViewController {
+    
+    // MARK: - Properties
+    public var moc : NSManagedObjectContext? {
+        didSet {
+            if let moc = moc {
+                favoriteService = FavoriteService(moc: moc)
+            }
+        }
+    }
+    private var favoriteService : FavoriteService?
+    
     
     // MARK: - Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -86,8 +98,9 @@ class SourcesController: UITableViewController {
             var selectedSource : SourceViewModel!
             selectedSource = sources.sources[indexPath!.row]
             controller.source = selectedSource
+            controller.moc = moc
         }
     }
     
-    
+
 }
