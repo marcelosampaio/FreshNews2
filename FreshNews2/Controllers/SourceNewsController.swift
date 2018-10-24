@@ -47,8 +47,8 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         super.viewDidLoad()
         
         
-        coreDataStart()
-        print("......... STOPPED by Admin")
+//        coreDataEngine()
+//        print("......... STOPPED by Admin")
         
         self.navigationItem.title = source.name!
         self.tableView.estimatedRowHeight = CGFloat(190)
@@ -204,15 +204,15 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     }
     
     // MARK: - Core Data
-    private func coreDataStart() {
+    private func coreDataEngine() {
         
 //        // INSERT
 //        let article = Article(dictionary: NSDictionary())
-//        article.title = "THIS WILL BE DELETED"
+//        article.title = "Papai Noel dos sonhos"
 //        article.description = "Com a chegada do fim de ano é esperado um aumento nas vendas do setor de comercio"
 //        article.author = "MAS"
 //        article.publishedAt = "2010-01-01"
-//        article.url = "url do link"
+//        article.url = "http://mundinews.com"
 //        article.urlToImage = "imageUrl"
 //
 //        self.favoriteService?.addFavoriteArticle(article, completion: { (success, articles) in
@@ -234,16 +234,18 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
 //            self.favoriteService?.delete(favoriteArticle: article)
 //            break
 //        }
-        
-        
-        // READ ALL
-        let articlesX = self.favoriteService?.getAllArticles()
-        for article in articlesX! {
-            print("** read all ** title: \(article.title!)")
-        }
-
-        
-
+//
+//
+//        // READ ALL
+//        let articlesX = self.favoriteService?.getAllArticles()
+//        for article in articlesX! {
+//            print("** read all ** title: \(article.title!)")
+//        }
+//
+//        // READ BY KEY
+//        let articleY = self.favoriteService?.getArticle(url: "http://mundinews.com")
+//        let title = articleY?.title!
+//        print("** getArticle title: \(title!)")
         
     }
     

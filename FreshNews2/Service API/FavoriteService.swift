@@ -19,7 +19,7 @@ class FavoriteService {
     init(moc: NSManagedObjectContext) {
         self.moc = moc
     }
-    
+
     // MARK: - Data Manipulation
     public func addFavoriteArticle(_ article: Article, completion: FavoriteArticleHandler) {
         
@@ -39,6 +39,27 @@ class FavoriteService {
         
     }
     
+    
+    public func getArticle(url: String) -> FavoriteArticle? {
+        
+        let request : NSFetchRequest<FavoriteArticle> = FavoriteArticle.fetchRequest()
+        request.predicate = NSPredicate(format: "url = %@", url)
+        var favoriteArticle : FavoriteArticle?
+        do {
+            let result = try moc.fetch(request)
+            favoriteArticle = result.first
+        }
+        catch let error as NSError  {
+            print("Error getting favorite article: \(error.localizedDescription)")
+        }
+        
+        return favoriteArticle
+        
+    }
+    
+    
+    
+    
     public func getAllArticles() -> [FavoriteArticle]? {
         
         let sortByDate = NSSortDescriptor(key: "publishedAt", ascending: false)
@@ -53,7 +74,7 @@ class FavoriteService {
             favoriteArticles = try moc.fetch(request)
             return favoriteArticles
         } catch let error as NSError {
-            print("Error getting students: \(error.localizedDescription)")
+            print("Error getting favorite articles: \(error.localizedDescription)")
         }
         
         return nil
@@ -98,7 +119,7 @@ class FavoriteService {
             try moc.save()
         }
         catch let error as NSError {
-            print("Error saving student: \(error.localizedDescription)")
+            print("Error saving core data entity: \(error.localizedDescription)")
         }
     }
     
