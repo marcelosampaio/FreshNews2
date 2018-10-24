@@ -5,6 +5,12 @@
 //  Created by Marcelo on 19/10/18.
 //  Copyright © 2018 Marcelo. All rights reserved.
 //
+//  Version: 1.0
+//  -------------------------------------------
+//  Remarks: Before Core Data for Favorite News
+//  -------------------------------------------
+//
+
 
 import UIKit
 
