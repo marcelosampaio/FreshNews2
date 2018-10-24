@@ -20,7 +20,7 @@ class FavoriteService {
         self.moc = moc
     }
     
-    // MARK: - Data
+    // MARK: - Data Manipulation
     public func addFavoriteArticle(_ article: Article, completion: FavoriteArticleHandler) {
         
         let favoriteArticle = FavoriteArticle(context: moc)
