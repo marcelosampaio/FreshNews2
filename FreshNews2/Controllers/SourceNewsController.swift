@@ -47,11 +47,6 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        coreDataEngine()
-        print("......... end of query all core data entity")
-        
         self.navigationItem.title = source.name!
         self.tableView.estimatedRowHeight = CGFloat(190)
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -99,7 +94,6 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
                 }
                 
                 // Favorite Icon
-                print("> row: \(cell.tag)")
                 if self.favoriteArticleExists(url: vm.url!) {
                     let tempImage = UIImage(named: "FavoriteYes")
                     cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
@@ -224,62 +218,11 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - Favorite Helper
     private func favoriteArticleExists(url: String) -> Bool {
-        if let fa = self.favoriteService?.getArticle(url: url) {
+        if (self.favoriteService?.getArticle(url: url)) != nil {
             return true
         }else{
             return false
         }
     }
-    
-    
-    // MARK: - Core Data
-    private func coreDataEngine() {
-        
-//        // INSERT
-//        let article = Article(dictionary: NSDictionary())
-//        article.title = "Papai Noel dos sonhos"
-//        article.description = "Com a chegada do fim de ano é esperado um aumento nas vendas do setor de comercio"
-//        article.author = "MAS"
-//        article.publishedAt = "2010-01-01"
-//        article.url = "http://mundinews.com"
-//        article.urlToImage = "imageUrl"
-//
-//        self.favoriteService?.addFavoriteArticle(article, completion: { (success, articles) in
-//            // completion
-//            if success {
-//                for article in articles {
-//                    print("** after insert ** title: \(String(describing: article.title!))")
-//                }
-//            }
-//        })
-//
-//
-//        // READ ALL with delete first
-//        let articles = self.favoriteService?.getAllArticles()
-//        for article in articles! {
-//            print("** read all with delete first ** title: \(article.title!)")
-//
-//            // DELETE
-//            self.favoriteService?.delete(favoriteArticle: article)
-//        }
-//
-//
-        // READ ALL
-        let articlesX = self.favoriteService?.getAllArticles()
-        var i = 1
-        for article in articlesX! {
-            
-            print("** read all <><><>  \(i)  <><><> ** title: \(article.title!)  objId: \(article.objectID)")
-            i = i + 1
-        }
-//
-//        // READ BY KEY
-//        let articleY = self.favoriteService?.getArticle(url: "http://mundinews.com")
-//        let title = articleY?.title!
-//        print("** getArticle title: \(title!)")
-        
-    }
-    
-    
-    
+ 
 }
