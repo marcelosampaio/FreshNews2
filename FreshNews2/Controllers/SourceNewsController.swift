@@ -36,7 +36,9 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     private var cellIdentifier = "Cell"
     private var selectedIndexPath = IndexPath()
     
+    private var sourceNewsFactory = SourceNewsFactory()
     
+
     // MARK: - Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var noContentView: UIView!
@@ -64,46 +66,11 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
 
         self.articles = ArticlesViewModel(sourceId: source.id!, completion: {
             // completion
-            self.dataSource = TableViewDataSource(cellIdentifier: self.cellIdentifier, items:self.articles.articles, configureCell: { (cell, vm) in
+            self.dataSource = TableViewDataSource(cellIdentifier: self.cellIdentifier, items:self.articles.articles, configureCell: { (sourceCell, viewModel) in
                 // completion
-                
+                let isFavorite = self.favoriteArticleExists(url: viewModel.url!) ? true : false
+                let cell : NewsTableViewCell = self.sourceNewsFactory.cellContent(cell: sourceCell, viewModel: viewModel, isFavorite: isFavorite)
                 cell.delegate = self
-                
-                cell.articleTitle.text = vm.title
-                cell.articleDescription.text = vm.description
-                cell.articlePublishDate.text = vm.publishedAt
-
-                
-                // article image
-                if (vm.urlToImage != nil && vm.urlToImage != "" ) {
-                    
-                    let imgSrc = vm.urlToImage
-                    let url = URL(string: imgSrc!)
-
-                    if imgSrc?.isEmpty == nil  {
-                        cell.articleImageView.contentMode = UIView.ContentMode.scaleAspectFit
-                        cell.articleImageView.image = UIImage(named: "noContentIcon")
-
-                    }else{
-                        cell.articleImageView.kf.indicatorType = .activity
-                        cell.articleImageView.kf.setImage(with: url)
-                    }
-                    
-                }else{
-                    cell.articleImageView.contentMode = UIView.ContentMode.scaleAspectFit
-                    cell.articleImageView.image = UIImage(named: "noContentIcon")
-                }
-                
-                // Favorite Icon
-                if self.favoriteArticleExists(url: vm.url!) {
-                    let tempImage = UIImage(named: "FavoriteYes")
-                    cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
-                    cell.isFavorite = true
-                }else{
-                    let tempImage = UIImage(named: "favoriteNo")
-                    cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
-                    cell.isFavorite = false
-                }
     
             })
             self.tableView.dataSource = self.dataSource
