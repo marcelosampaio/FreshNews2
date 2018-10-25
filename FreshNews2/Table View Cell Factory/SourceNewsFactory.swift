@@ -50,6 +50,14 @@ class SourceNewsFactory {
             cell.isFavorite = false
         }
         
+        
+        if cell.tag % 2 == 0 {
+            cell.backgroundColor = UIColor.white
+        }else{
+            cell.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1)
+        }
+        
+        
         return cell
     }
     
