@@ -199,8 +199,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     }
     
     func didChangeFavoriteValue(rowIndex: Int) {
-        print("DID CHANGE FAVORITE VALUE at row: \(rowIndex)")
-        
+
         let articleViewModel = articles?.articles[rowIndex]
         let article = adapter.adaptFromViewModelToBusinessModel(articleViewModel: articleViewModel!)
         
@@ -208,39 +207,28 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         let url = article.url
         if favoriteArticleExists(url: url) {
             // delete article from favorites
-            print("             🚩about to DELETE: \(article.title)")
-            let favArticle = adapter.adaptFromViewModelToCoreDataModel(articleViewModel: articleViewModel!, context: self.moc!)
-            self.favoriteService?.delete(favoriteArticle: favArticle)
-            print("** deleted")
+            let favArticle = favoriteService?.getArticle(url: url)
+            self.favoriteService?.delete(favoriteArticle: favArticle!)
         }else{
             // add article to favorites
-            print("             🚩about to INSERT: \(article.title)")
             self.favoriteService?.addFavoriteArticle(article, completion: { (success, favoriteArticle) in
                 // completion
-                if success {
-                    print("** inserted")
-                }else{
+                if !success {
                     print("** error inserting")
                 }
             })
-
         }
     
         self.tableView.reloadData()
     }
     
-    
     // MARK: - Favorite Helper
     private func favoriteArticleExists(url: String) -> Bool {
-        
         if let fa = self.favoriteService?.getArticle(url: url) {
-            print("         > found ✨ -> \(fa.title!)")
             return true
         }else{
-            print("         > NOT found")
             return false
         }
-        
     }
     
     
