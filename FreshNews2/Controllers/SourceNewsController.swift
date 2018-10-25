@@ -68,6 +68,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
                 // completion
                 
                 cell.delegate = self
+                
                 cell.articleTitle.text = vm.title
                 cell.articleDescription.text = vm.description
                 cell.articlePublishDate.text = vm.publishedAt
