@@ -95,8 +95,6 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         UIApplication.shared.open(url!, options: [:]) { (success) in
             // completion
         }
-//        UIApplication.shared.openURL(url!)
-        
     }
 
     // MARK: - TableView Helper
