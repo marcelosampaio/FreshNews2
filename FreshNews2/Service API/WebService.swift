@@ -110,14 +110,9 @@ class WebService {
             
             // file root is a dictionary
             if let dic = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                print ("****** dic = \(dic)")
-                
                 result = dic[identifier] as! String
-                
-                
             }
         }
-        print("***2*** ACTION: \(identifier)")
         return result
     }
     

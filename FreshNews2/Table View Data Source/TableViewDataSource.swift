@@ -28,6 +28,7 @@ class TableViewDataSource<Cell: UITableViewCell, ViewModel> : NSObject, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! Cell
         let item = self.items[indexPath.row]
+        cell.tag = indexPath.row
         self.configureCell(cell, item)
         return cell
     }

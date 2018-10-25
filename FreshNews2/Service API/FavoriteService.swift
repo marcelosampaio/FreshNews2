@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-typealias FavoriteArticleHandler = (Bool, [FavoriteArticle]) -> ()
+typealias FavoriteArticleHandler = (Bool, FavoriteArticle) -> ()
 
 class FavoriteService {
     
@@ -31,10 +31,10 @@ class FavoriteService {
         favoriteArticle.author = article.author
         favoriteArticle.url = article.url
 
-        favoriteArticles.append(favoriteArticle)
-        completion(true, favoriteArticles)
-            
-
+//        favoriteArticles.append(favoriteArticle)
+    
+        completion(true, favoriteArticle)
+        
         save()
         
     }
@@ -112,9 +112,6 @@ class FavoriteService {
     
     // MARK: - Persistence
     private func save() {
-//        let appDelegate = AppDelegate()
-//        appDelegate.saveContext()
-        
         do {
             try moc.save()
         }

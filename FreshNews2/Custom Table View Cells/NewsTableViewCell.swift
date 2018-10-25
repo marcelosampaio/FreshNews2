@@ -10,7 +10,8 @@ import UIKit
 
 
 protocol NewsTableViewCellProtocol: class {
-    func didSelectShare(rowIndex: String)
+    func didSelectShare(rowIndex: Int)
+    func didChangeFavoriteValue(rowIndex: Int)
 }
 
 
@@ -28,7 +29,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet var articleFavoriteIcon: UIButton!
     
     // MARK: - Parameters
-    public var rowIndex = String()
+    public var rowIndex = Int()
     public var isFavorite = false
     
     override func awakeFromNib() {
@@ -45,11 +46,11 @@ class NewsTableViewCell: UITableViewCell {
     
     // MARK: - UI Actions
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-
+        delegate?.didChangeFavoriteValue(rowIndex: self.tag)
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        delegate?.didSelectShare(rowIndex: rowIndex)
+        delegate?.didSelectShare(rowIndex: self.tag)
     }
 
     

@@ -31,6 +31,7 @@
 		9C73C6F0217A7F1700ACCBC8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73C6EE217A7F1700ACCBC8 /* NewsTableViewCell.swift */; };
 		9C73C6F5217A7F9200ACCBC8 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73C6F4217A7F9200ACCBC8 /* TableViewDataSource.swift */; };
 		9C73C6FA217A833900ACCBC8 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C73C6F9217A833900ACCBC8 /* Config.plist */; };
+		9CB8626221810C9A00B3EB78 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8626121810C9A00B3EB78 /* Adapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		9C73C6EE217A7F1700ACCBC8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		9C73C6F4217A7F9200ACCBC8 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		9C73C6F9217A833900ACCBC8 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		9CB8626121810C9A00B3EB78 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		9C73C6B6217A6A3C00ACCBC8 /* FreshNews2 */ = {
 			isa = PBXGroup;
 			children = (
+				9CB8626021810C5F00B3EB78 /* Adapter */,
 				9C2BEE3D218029F100F41573 /* Core Data */,
 				9C73C6F1217A7F5000ACCBC8 /* Table View Data Source */,
 				9C73C6EA217A7ECE00ACCBC8 /* Custom Table View Cells */,
@@ -236,6 +239,14 @@
 				9C73C6F9217A833900ACCBC8 /* Config.plist */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		9CB8626021810C5F00B3EB78 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				9CB8626121810C9A00B3EB78 /* Adapter.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +375,7 @@
 				9C73C6EF217A7F1700ACCBC8 /* SourceTableViewCell.swift in Sources */,
 				9C73C6DD217A7D4500ACCBC8 /* SourceViewModel.swift in Sources */,
 				9C63B5D5217CBF16002D423B /* Article.swift in Sources */,
+				9CB8626221810C9A00B3EB78 /* Adapter.swift in Sources */,
 				9C73C6DC217A7D4500ACCBC8 /* SourcesViewModel.swift in Sources */,
 				9C2BEE4A21802E4D00F41573 /* FreshNews2.xcdatamodeld in Sources */,
 				9C73C6F5217A7F9200ACCBC8 /* TableViewDataSource.swift in Sources */,

@@ -30,10 +30,13 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     private var articles : ArticlesViewModel!
     private var webService = WebService()
+    private var adapter = Adapter()
     private var dataSource : TableViewDataSource<NewsTableViewCell, ArticleViewModel>!
     
     private var cellIdentifier = "Cell"
     private var selectedIndexPath = IndexPath()
+    
+    private var indexRow : Int = 0
     
     // MARK: - Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -47,8 +50,8 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         super.viewDidLoad()
         
         
-//        coreDataEngine()
-//        print("......... STOPPED by Admin")
+        coreDataEngine()
+        print("......... STOPPED by Admin")
         
         self.navigationItem.title = source.name!
         self.tableView.estimatedRowHeight = CGFloat(190)
@@ -64,17 +67,14 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - Application Data Source
     private func loadAppData() {
-        
+//        self.indexRow = 0
         self.articles = ArticlesViewModel(sourceId: source.id!, completion: {
             // completion
-            var rowIndex = String()
-            var i = 0
             self.dataSource = TableViewDataSource(cellIdentifier: self.cellIdentifier, items:self.articles.articles, configureCell: { (cell, vm) in
                 // completion
                 
-                rowIndex = String(i)
-                cell.rowIndex = rowIndex
-                i = i + 1
+//                cell.rowIndex = self.indexRow
+//                self.indexRow += 1
                 
                 cell.delegate = self
                 cell.articleTitle.text = vm.title
@@ -103,18 +103,15 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
                 }
                 
                 // Favorite Icon
-//                if self.favoriteNews[indexPath.row] {
-//                    let tempImage = UIImage(named: "FavoriteYes")
-//                    cell.articleFavoriteIcon.setImage(tempImage, for: UIControlState.normal)
-//                    cell.isFavorite = true
-//                }else{
+                if self.favoriteArticleExists(url: vm.url!) {
+                    let tempImage = UIImage(named: "FavoriteYes")
+                    cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
+                    cell.isFavorite = true
+                }else{
                     let tempImage = UIImage(named: "favoriteNo")
-                cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
-                cell.isFavorite = false
-//                }
-                
-                
-                
+                    cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
+                    cell.isFavorite = false
+                }
     
             })
             self.tableView.dataSource = self.dataSource
@@ -132,6 +129,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - TableView Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
         let article = self.articles.articles[indexPath.row].url!
         let url = URL(string: article)
@@ -186,22 +184,68 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     }
     
     // MARK: - NewsTableViewCell Delegate
-    func didSelectShare(rowIndex: String) {
-        let i = Int(rowIndex)
+    func didSelectShare(rowIndex: Int) {
+        
         var content = String()
         var articleTitle = String()
         var articleUrl = String()
         
-        if !articles.articles[i!].title!.isEmpty {
-            articleTitle = articles.articles[i!].title!
+        if !articles.articles[rowIndex].title!.isEmpty {
+            articleTitle = articles.articles[rowIndex].title!
         }
         
-        if !articles.articles[i!].url!.isEmpty {
-            articleUrl = articles.articles[i!].url!
+        if !articles.articles[rowIndex].url!.isEmpty {
+            articleUrl = articles.articles[rowIndex].url!
         }
         content = articleTitle + " - " + articleUrl
         self.displayShareSheet(shareContent: content)
     }
+    
+    func didChangeFavoriteValue(rowIndex: Int) {
+        print("DID CHANGE FAVORITE VALUE at row: \(rowIndex)")
+        
+        let articleViewModel = articles?.articles[rowIndex]
+        let favArticle = adapter.adaptFromViewModelToCoreDataModel(articleViewModel: articleViewModel!, context: self.moc!)
+        let article = adapter.adaptFromViewModelToBusinessModel(articleViewModel: articleViewModel!)
+        
+//        let url = favArticle.url
+//        if favoriteArticleExists(url: url!) {
+//            // delete article from favorites
+//            print("** about to delete")
+//            self.favoriteService?.delete(favoriteArticle: favArticle)
+//            print("** deleted")
+//        }else{
+            // add article to favorites
+            print("** about to insert: \(article)")
+            self.favoriteService?.addFavoriteArticle(article, completion: { (success, favoriteArticle) in
+                // completion
+                if success {
+                    print("** inserted")
+                    self.favoriteService?.delete(favoriteArticle: favoriteArticle)
+                }else{
+                    print("** error inserting")
+                }
+            })
+
+//        }
+        self.indexRow = 0
+        self.tableView.reloadData()
+    }
+    
+    
+    // MARK: - Favorite Helper
+    private func favoriteArticleExists(url: String) -> Bool {
+        
+        if let fa = self.favoriteService?.getArticle(url: url) {
+            print("** fa exists: \(fa.title!)")
+            return true
+        }else{
+            print("** fa does not exist")
+            return false
+        }
+        
+    }
+    
     
     // MARK: - Core Data
     private func coreDataEngine() {
@@ -232,15 +276,17 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
 //
 //            // DELETE
 //            self.favoriteService?.delete(favoriteArticle: article)
-//            break
 //        }
 //
 //
-//        // READ ALL
-//        let articlesX = self.favoriteService?.getAllArticles()
-//        for article in articlesX! {
-//            print("** read all ** title: \(article.title!)")
-//        }
+        // READ ALL
+        let articlesX = self.favoriteService?.getAllArticles()
+        var i = 1
+        for article in articlesX! {
+            
+            print("** read all <><><>  \(i)  <><><> ** title: \(article.title!)  objId: \(article.objectID)")
+            i = i + 1
+        }
 //
 //        // READ BY KEY
 //        let articleY = self.favoriteService?.getArticle(url: "http://mundinews.com")
