@@ -89,27 +89,6 @@ class FavoriteService {
         
     }
     
-
-    
-//    private func favoriteArticleExists(url: String) -> FavoriteArticle? {
-//
-//        let request : NSFetchRequest<FavoriteArticle> = FavoriteArticle.fetchRequest()
-//        request.predicate = NSPredicate(format: "url = %@", url)
-//        let favoriteArticle : FavoriteArticle?
-//        do {
-//            let result = try moc.fetch(request)
-//            print("result: \(result)")
-////            lesson = result.isEmpty ? addNewLesson(type: type) : result.first
-//        }
-//        catch let error as NSError  {
-//            print("Error getting lesson: \(error.localizedDescription)")
-//        }
-//
-//        return favoriteArticle
-//
-//    }
-    
-    
     // MARK: - Persistence
     private func save() {
         do {

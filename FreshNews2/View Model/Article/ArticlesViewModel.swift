@@ -13,9 +13,9 @@ class ArticlesViewModel {
     private var webService = WebService()
     
     init(sourceId: String, completion: @escaping () -> ()) {
-        webService.getNews(sourceId: sourceId) { (articles) in
-            if articles.count > 0 {
-                self.articles = articles.map(ArticleViewModel.init)
+        webService.getNews(sourceId: sourceId) { (resultArticles) in
+            if resultArticles.count > 0 {
+                self.articles = resultArticles.map(ArticleViewModel.init)
             }
             DispatchQueue.main.async {
                 completion()

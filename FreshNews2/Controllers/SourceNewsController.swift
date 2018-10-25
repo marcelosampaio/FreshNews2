@@ -36,7 +36,6 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     private var cellIdentifier = "Cell"
     private var selectedIndexPath = IndexPath()
     
-    private var indexRow : Int = 0
     
     // MARK: - Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -51,7 +50,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         
         
         coreDataEngine()
-        print("......... STOPPED by Admin")
+        print("......... end of query all core data entity")
         
         self.navigationItem.title = source.name!
         self.tableView.estimatedRowHeight = CGFloat(190)
@@ -67,20 +66,17 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - Application Data Source
     private func loadAppData() {
-//        self.indexRow = 0
+
         self.articles = ArticlesViewModel(sourceId: source.id!, completion: {
             // completion
             self.dataSource = TableViewDataSource(cellIdentifier: self.cellIdentifier, items:self.articles.articles, configureCell: { (cell, vm) in
                 // completion
                 
-//                cell.rowIndex = self.indexRow
-//                self.indexRow += 1
-                
                 cell.delegate = self
                 cell.articleTitle.text = vm.title
                 cell.articleDescription.text = vm.description
                 cell.articlePublishDate.text = vm.publishedAt
-//                cell.articleFavoriteIcon
+
                 
                 // article image
                 if (vm.urlToImage != nil && vm.urlToImage != "" ) {
@@ -103,6 +99,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
                 }
                 
                 // Favorite Icon
+                print("> row: \(cell.tag)")
                 if self.favoriteArticleExists(url: vm.url!) {
                     let tempImage = UIImage(named: "FavoriteYes")
                     cell.articleFavoriteIcon.setImage(tempImage, for: UIControl.State.normal)
@@ -205,30 +202,30 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         print("DID CHANGE FAVORITE VALUE at row: \(rowIndex)")
         
         let articleViewModel = articles?.articles[rowIndex]
-        let favArticle = adapter.adaptFromViewModelToCoreDataModel(articleViewModel: articleViewModel!, context: self.moc!)
         let article = adapter.adaptFromViewModelToBusinessModel(articleViewModel: articleViewModel!)
         
-//        let url = favArticle.url
-//        if favoriteArticleExists(url: url!) {
-//            // delete article from favorites
-//            print("** about to delete")
-//            self.favoriteService?.delete(favoriteArticle: favArticle)
-//            print("** deleted")
-//        }else{
+        
+        let url = article.url
+        if favoriteArticleExists(url: url) {
+            // delete article from favorites
+            print("             🚩about to DELETE: \(article.title)")
+            let favArticle = adapter.adaptFromViewModelToCoreDataModel(articleViewModel: articleViewModel!, context: self.moc!)
+            self.favoriteService?.delete(favoriteArticle: favArticle)
+            print("** deleted")
+        }else{
             // add article to favorites
-            print("** about to insert: \(article)")
+            print("             🚩about to INSERT: \(article.title)")
             self.favoriteService?.addFavoriteArticle(article, completion: { (success, favoriteArticle) in
                 // completion
                 if success {
                     print("** inserted")
-                    self.favoriteService?.delete(favoriteArticle: favoriteArticle)
                 }else{
                     print("** error inserting")
                 }
             })
 
-//        }
-        self.indexRow = 0
+        }
+    
         self.tableView.reloadData()
     }
     
@@ -237,10 +234,10 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     private func favoriteArticleExists(url: String) -> Bool {
         
         if let fa = self.favoriteService?.getArticle(url: url) {
-            print("** fa exists: \(fa.title!)")
+            print("         > found ✨ -> \(fa.title!)")
             return true
         }else{
-            print("** fa does not exist")
+            print("         > NOT found")
             return false
         }
         
