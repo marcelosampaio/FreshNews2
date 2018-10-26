@@ -13,6 +13,7 @@ class SourcesViewModel {
     private var webService = WebService()
     
     init(completion: @escaping () -> ()) {
+        
         webService.getNewsSources { (webContent) in
             // completion
             if webContent.status == "ok" && webContent.sources.count > 0 {
@@ -22,6 +23,7 @@ class SourcesViewModel {
                 completion()
             }
         }
+        
     }
 
     

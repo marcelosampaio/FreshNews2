@@ -9,6 +9,11 @@
 import Foundation
 import CoreData
 
+enum ProviderType : String {
+    case web
+    case database
+}
+
 typealias FavoriteArticleHandler = (Bool, FavoriteArticle) -> ()
 
 class FavoriteService {

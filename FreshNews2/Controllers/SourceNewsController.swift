@@ -22,11 +22,13 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
             }
         }
     }
+    public var selectedProviderType : ProviderType = ProviderType.web
     
     private var favoriteService : FavoriteService?
     
     // MARK: - Properties
     public var source : SourceViewModel!
+
     
     private var articles : ArticlesViewModel!
     private var webService = WebService()
@@ -49,7 +51,14 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = source.name!
+        
+        if selectedProviderType == .web {
+            self.navigationItem.title = source.name!
+        }else{
+            self.navigationItem.title = "Favorites"
+        }
+        
+        
         self.tableView.estimatedRowHeight = CGFloat(190)
         self.tableView.rowHeight = UITableView.automaticDimension
         
@@ -64,7 +73,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     // MARK: - Application Data Source
     private func loadAppData() {
 
-        self.articles = ArticlesViewModel(sourceId: source.id!, completion: {
+        self.articles = ArticlesViewModel(provider: selectedProviderType, sourceId: source.id!, completion: {
             // completion
             self.dataSource = TableViewDataSource(cellIdentifier: self.cellIdentifier, items:self.articles.articles, configureCell: { (sourceCell, viewModel) in
                 // completion

@@ -101,7 +101,7 @@
                     <navigationItem key="navigationItem" title="News Feed" id="K40-Of-Vex">
                         <barButtonItem key="leftBarButtonItem" image="favoriteNo" id="hZH-WW-fRB">
                             <connections>
-                                <action selector="showFavoritesContent:" destination="ULf-s3-TMO" id="3r4-Zy-smE"/>
+                                <action selector="favoriteAction:" destination="ULf-s3-TMO" id="N63-Pv-7id"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="cno-80-Sqw">
@@ -335,6 +335,6 @@
         <image name="share2" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fSO-EE-UYr"/>
+        <segue reference="0uU-6e-dgx"/>
     </inferredMetricsTieBreakers>
 </document>

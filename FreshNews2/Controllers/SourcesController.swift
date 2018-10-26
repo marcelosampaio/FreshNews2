@@ -66,6 +66,12 @@ class SourcesController: UITableViewController {
         })
         
     }
+    
+    // MARK: - UI Action
+    @IBAction func favoriteAction(_ sender: Any) {
+        performSegue(withIdentifier: "showFavorites", sender: self)
+    }
+    
 
     // MARK: - TableView Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -92,6 +98,7 @@ class SourcesController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showSourceNews" {
             let controller = segue.destination as! SourceNewsController
             let indexPath = tableView.indexPathForSelectedRow
@@ -99,8 +106,15 @@ class SourcesController: UITableViewController {
             selectedSource = sources.sources[indexPath!.row]
             controller.source = selectedSource
             controller.moc = moc
+            controller.selectedProviderType = ProviderType.web
+        }else if segue.identifier == "showFavorites" {
+            let controller = segue.destination as! SourceNewsController
+            controller.selectedProviderType = ProviderType.database
+            let dummySource : SourceViewModel! = SourceViewModel(source: Source(dictionary: NSDictionary()))
+            dummySource.category = ""
+            controller.source = dummySource
         }
+        
     }
-    
 
 }
