@@ -45,6 +45,7 @@ class Adapter {
         favoriteArticle.author = article.author
         favoriteArticle.url = article.url
         favoriteArticle.urlToImage = article.urlToImage
+        favoriteArticle.publishedAt = article.publishedAt
 
         return favoriteArticle
         
@@ -58,6 +59,7 @@ class Adapter {
         article.author = favoriteArticle.author!
         article.url = favoriteArticle.url!
         article.urlToImage = favoriteArticle.urlToImage!
+        article.publishedAt = favoriteArticle.publishedAt!
         
         return article
         
