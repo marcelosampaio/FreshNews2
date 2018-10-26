@@ -187,8 +187,8 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
                 }
             })
         }
-    
-        self.tableView.reloadData()
+        // refresh
+        self.loadAppData()
     }
     
     // MARK: - Favorite Helper
