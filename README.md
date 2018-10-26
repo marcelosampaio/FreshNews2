@@ -1,9 +1,13 @@
 # FreshNews2
 
 Aplicativo (Swift 4.2) para demomstração da utilizaçao de:
+
   • MVVM
+  
   • Core Data
+  
   • Custom Network Layer
+  
 
 # Considerações Importantes
 Este aplicativo utiliza apenas uma única dependência:
