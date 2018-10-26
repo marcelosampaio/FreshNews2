@@ -9,9 +9,17 @@
 import Foundation
 
 class ArticlesViewModel {
-    public var articles : [ArticleViewModel] = [ArticleViewModel]()
-    private var webService = WebService()
     
+    // public
+    public var articles : [ArticleViewModel] = [ArticleViewModel]()
+    
+    // private
+    private var favoriteArticles : [FavoriteArticle]?
+    private var webService = WebService()
+//    private var databaseService = FavoriteService(moc: AppSettings.standard.moc!)
+    
+    
+    // --
     init(provider: ProviderType, sourceId: String, completion: @escaping () -> ()) {
         
         if provider == ProviderType.web {
@@ -27,7 +35,14 @@ class ArticlesViewModel {
             
         }else{
             // database
+//            self.favoriteArticles = databaseService.getAllArticles()
+//            print("array of favortie articles Core Data Model")
+//            print("")
             
+            // completion
+            DispatchQueue.main.async {
+                completion()
+            }
         }
         
         

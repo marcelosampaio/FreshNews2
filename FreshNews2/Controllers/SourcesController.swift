@@ -40,6 +40,10 @@ class SourcesController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.setNoContent(msg: "Loading...")
         self.setActivityIndicator(show: true)
+        
+        // Core Data Mnaged Object
+        AppSettings.standard.moc = self.moc
+        
         // load app data
         loadAppData()
     }
@@ -110,7 +114,6 @@ class SourcesController: UITableViewController {
             var selectedSource : SourceViewModel!
             selectedSource = sources.sources[indexPath!.row]
             controller.source = selectedSource
-            controller.moc = moc
             controller.selectedProviderType = ProviderType.web
         }else if segue.identifier == "showFavorites" {
             let controller = segue.destination as! SourceNewsController

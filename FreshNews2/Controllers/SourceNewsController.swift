@@ -15,13 +15,6 @@ import Kingfisher
 class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - Properties
-    public var moc : NSManagedObjectContext? {
-        didSet {
-            if let moc = moc {
-                favoriteService = FavoriteService(moc: moc)
-            }
-        }
-    }
     public var selectedProviderType : ProviderType = ProviderType.web
     
     private var favoriteService : FavoriteService?
@@ -64,6 +57,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         
         self.setNoContent(msg: "Loading...")
         self.setActivityIndicator(show: true)
+        
         // load app data
         loadAppData()
         

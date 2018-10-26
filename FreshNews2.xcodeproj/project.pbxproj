@@ -33,6 +33,7 @@
 		9C73C6FA217A833900ACCBC8 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C73C6F9217A833900ACCBC8 /* Config.plist */; };
 		9CB8626221810C9A00B3EB78 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8626121810C9A00B3EB78 /* Adapter.swift */; };
 		9CB86267218235AE00B3EB78 /* SourceNewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB86266218235AE00B3EB78 /* SourceNewsFactory.swift */; };
+		9CB862692182C99A00B3EB78 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB862682182C99A00B3EB78 /* AppSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		9C73C6F9217A833900ACCBC8 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		9CB8626121810C9A00B3EB78 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		9CB86266218235AE00B3EB78 /* SourceNewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceNewsFactory.swift; sourceTree = "<group>"; };
+		9CB862682182C99A00B3EB78 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 			children = (
 				9C73C6B7217A6A3C00ACCBC8 /* AppDelegate.swift */,
 				9C73C6F9217A833900ACCBC8 /* Config.plist */,
+				9CB862682182C99A00B3EB78 /* AppSettings.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				9C73C6DC217A7D4500ACCBC8 /* SourcesViewModel.swift in Sources */,
 				9C2BEE4A21802E4D00F41573 /* FreshNews2.xcdatamodeld in Sources */,
 				9C73C6F5217A7F9200ACCBC8 /* TableViewDataSource.swift in Sources */,
+				9CB862692182C99A00B3EB78 /* AppSettings.swift in Sources */,
 				9C63B5D7217CC227002D423B /* News.swift in Sources */,
 				9C73C6B8217A6A3C00ACCBC8 /* AppDelegate.swift in Sources */,
 				9C63B5DB217D02E3002D423B /* ArticlesViewModel.swift in Sources */,
