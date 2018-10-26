@@ -29,6 +29,7 @@ class ArticlesViewModel {
                 if resultArticles.count > 0 {
                     self.articles = resultArticles.map(ArticleViewModel.init)
                 }
+                // completion
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -37,16 +38,10 @@ class ArticlesViewModel {
         }else{
             // database
             self.favoriteArticles = databaseService.getAllArticles()
-            print("array of favortie articles Core Data Model")
-            print("")
-            
             for favoriteArticle in self.favoriteArticles! {
                 let vmArticle = self.adapter.adaptFromCoreDataModelToViewModel(favoriteArticle: favoriteArticle)
                 articles.append(vmArticle)
             }
-            
-
-            
             // completion
             DispatchQueue.main.async {
                 completion()

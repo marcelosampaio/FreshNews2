@@ -51,7 +51,7 @@ class FavoriteService {
         request.predicate = NSPredicate(format: "url = %@", url)
         var favoriteArticle : FavoriteArticle?
         do {
-            let result = try moc.fetch(request)
+            let result = try AppSettings.standard.moc!.fetch(request)
             favoriteArticle = result.first
         }
         catch let error as NSError  {
