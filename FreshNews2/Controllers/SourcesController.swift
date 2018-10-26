@@ -55,14 +55,7 @@ class SourcesController: UITableViewController {
                 cell.sourceCategory.text = vm.category
                 cell.sourceDate.text = vm.country
             })
-            self.tableView.dataSource = self.dataSource
-            if self.sources.sources.count == 0 {
-                self.setNoContent(msg: "No news!")
-            }else{
-                self.tableView.tableHeaderView = nil
-            }
-            self.setActivityIndicator(show: false)
-            self.tableView.reloadData()
+            self.prepareToReloadData()
         })
         
     }
@@ -85,6 +78,18 @@ class SourcesController: UITableViewController {
         self.noContentView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.bounds.size.height)
         self.tableView.tableHeaderView = self.noContentView
     }
+    
+    private func prepareToReloadData() {
+        self.tableView.dataSource = self.dataSource
+        if self.sources.sources.count == 0 {
+            self.setNoContent(msg: "No news!")
+        }else{
+            self.tableView.tableHeaderView = nil
+        }
+        self.setActivityIndicator(show: false)
+        self.tableView.reloadData()
+    }
+    
     
     // MARK: - Activity Indicator
     private func setActivityIndicator(show: Bool) {

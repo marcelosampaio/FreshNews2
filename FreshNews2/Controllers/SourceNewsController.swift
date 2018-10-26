@@ -82,15 +82,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
                 cell.delegate = self
     
             })
-            self.tableView.dataSource = self.dataSource
-            // check 3
-            if self.articles.articles.count == 0 {
-                self.setNoContent(msg: "No articles!")
-            }else{
-                self.tableView.tableHeaderView = nil
-            }
-            self.setActivityIndicator(show: false)
-            self.tableView.reloadData()
+            self.prepareToReloadData()
         })
         
     }
@@ -111,6 +103,21 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         self.noContentLabel.text = msg
         self.noContentView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.bounds.size.height)
         self.tableView.tableHeaderView = self.noContentView
+    }
+    
+    private func prepareToReloadData() {
+        self.tableView.dataSource = self.dataSource
+        // check 3
+        if self.articles.articles.count == 0 {
+            self.setNoContent(msg: "No articles!")
+        }else{
+            self.tableView.tableHeaderView = nil
+        }
+        self.setActivityIndicator(show: false)
+        
+        // reload data
+        self.tableView.reloadData()
+        
     }
     
     // MARK: - Activity Indicator
