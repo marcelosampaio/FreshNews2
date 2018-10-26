@@ -16,8 +16,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - Properties
     public var selectedProviderType : ProviderType = ProviderType.web
-    
-    private var favoriteService : FavoriteService?
+    private var favoriteService = FavoriteService(moc: AppSettings.standard.moc!)
     
     // MARK: - Properties
     public var source : SourceViewModel!
@@ -177,11 +176,11 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
         let url = article.url
         if favoriteArticleExists(url: url) {
             // delete article from favorites
-            let favArticle = favoriteService?.getArticle(url: url)
-            self.favoriteService?.delete(favoriteArticle: favArticle!)
+            let favArticle = favoriteService.getArticle(url: url)
+            self.favoriteService.delete(favoriteArticle: favArticle!)
         }else{
             // add article to favorites
-            self.favoriteService?.addFavoriteArticle(article, completion: { (success, favoriteArticle) in
+            self.favoriteService.addFavoriteArticle(article, completion: { (success, favoriteArticle) in
                 // completion
                 if !success {
                     print("** error inserting")
@@ -194,7 +193,7 @@ class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - Favorite Helper
     private func favoriteArticleExists(url: String) -> Bool {
-        if (self.favoriteService?.getArticle(url: url)) != nil {
+        if (self.favoriteService.getArticle(url: url)) != nil {
             return true
         }else{
             return false
