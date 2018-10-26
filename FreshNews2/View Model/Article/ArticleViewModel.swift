@@ -16,6 +16,15 @@ class ArticleViewModel {
     var author : String!
     var url : String!
     
+    init() {
+        self.urlToImage = String()
+        self.description = String()
+        self.title = String()
+        self.publishedAt = String()
+        self.author = String()
+        self.url = String()
+    }
+    
     init(article: Article) {
         self.urlToImage = article.urlToImage
         self.description = article.description
@@ -24,4 +33,8 @@ class ArticleViewModel {
         self.author = article.author
         self.url = article.url
     }
+    
+    
+    
+    
 }

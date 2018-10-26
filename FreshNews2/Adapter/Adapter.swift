@@ -50,4 +50,18 @@ class Adapter {
         
     }
     
+    func adaptFromCoreDataModelToViewModel(favoriteArticle: FavoriteArticle) -> ArticleViewModel {
+        
+        let article = ArticleViewModel()
+        article.title = favoriteArticle.title!
+        article.description = favoriteArticle.articleDescription!
+        article.author = favoriteArticle.author!
+        article.url = favoriteArticle.url!
+        article.urlToImage = favoriteArticle.urlToImage!
+        
+        return article
+        
+    }
+    
+    
 }

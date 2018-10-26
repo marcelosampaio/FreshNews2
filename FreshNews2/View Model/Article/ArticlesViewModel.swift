@@ -16,7 +16,8 @@ class ArticlesViewModel {
     // private
     private var favoriteArticles : [FavoriteArticle]?
     private var webService = WebService()
-//    private var databaseService = FavoriteService(moc: AppSettings.standard.moc!)
+    private var databaseService = FavoriteService(moc: AppSettings.standard.moc!)
+    private var adapter = Adapter()
     
     
     // --
@@ -35,9 +36,16 @@ class ArticlesViewModel {
             
         }else{
             // database
-//            self.favoriteArticles = databaseService.getAllArticles()
-//            print("array of favortie articles Core Data Model")
-//            print("")
+            self.favoriteArticles = databaseService.getAllArticles()
+            print("array of favortie articles Core Data Model")
+            print("")
+            
+            for favoriteArticle in self.favoriteArticles! {
+                let vmArticle = self.adapter.adaptFromCoreDataModelToViewModel(favoriteArticle: favoriteArticle)
+                articles.append(vmArticle)
+            }
+            
+
             
             // completion
             DispatchQueue.main.async {
