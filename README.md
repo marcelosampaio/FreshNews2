@@ -7,6 +7,8 @@ This is an open source project and you are welcome to colaborate!
   • Core Data
   
   • Custom Network Layer
+
+  • Reachability
   
 
 # Dependencies
