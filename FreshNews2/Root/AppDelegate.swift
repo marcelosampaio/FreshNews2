@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sourcesController = navigationVC?.viewControllers.first as! SourcesController
         sourcesController.moc = persistentContainer.viewContext
         
+        // reachability
+        reachability = Reachability.reachabilityForInternetConnection()
+        _ = reachability.startNotifier()
     
         return true
     }

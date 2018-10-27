@@ -31,6 +31,10 @@
 		9C73C6F0217A7F1700ACCBC8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73C6EE217A7F1700ACCBC8 /* NewsTableViewCell.swift */; };
 		9C73C6F5217A7F9200ACCBC8 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73C6F4217A7F9200ACCBC8 /* TableViewDataSource.swift */; };
 		9C73C6FA217A833900ACCBC8 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C73C6F9217A833900ACCBC8 /* Config.plist */; };
+		9CA89B842183E29A00A7DA3B /* ErrorHandler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CA89B822183E29A00A7DA3B /* ErrorHandler.storyboard */; };
+		9CA89B862183E34300A7DA3B /* ErrorHandlerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA89B852183E34300A7DA3B /* ErrorHandlerController.swift */; };
+		9CA89B892183E41200A7DA3B /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA89B882183E41200A7DA3B /* UIColor+Utils.swift */; };
+		9CA89B8F2183EC9600A7DA3B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA89B8E2183EC9600A7DA3B /* Reachability.swift */; };
 		9CB8626221810C9A00B3EB78 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8626121810C9A00B3EB78 /* Adapter.swift */; };
 		9CB86267218235AE00B3EB78 /* SourceNewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB86266218235AE00B3EB78 /* SourceNewsFactory.swift */; };
 		9CB862692182C99A00B3EB78 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB862682182C99A00B3EB78 /* AppSettings.swift */; };
@@ -65,6 +69,10 @@
 		9C73C6EE217A7F1700ACCBC8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		9C73C6F4217A7F9200ACCBC8 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		9C73C6F9217A833900ACCBC8 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		9CA89B832183E29A00A7DA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ErrorHandler.storyboard; sourceTree = "<group>"; };
+		9CA89B852183E34300A7DA3B /* ErrorHandlerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerController.swift; sourceTree = "<group>"; };
+		9CA89B882183E41200A7DA3B /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		9CA89B8E2183EC9600A7DA3B /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9CB8626121810C9A00B3EB78 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		9CB86266218235AE00B3EB78 /* SourceNewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceNewsFactory.swift; sourceTree = "<group>"; };
 		9CB862682182C99A00B3EB78 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
@@ -148,6 +156,8 @@
 		9C73C6B6217A6A3C00ACCBC8 /* FreshNews2 */ = {
 			isa = PBXGroup;
 			children = (
+				9CA89B872183E3F500A7DA3B /* Extension */,
+				9CA89B7D2183D42C00A7DA3B /* Reachability */,
 				9CB8626021810C5F00B3EB78 /* Adapter */,
 				9C2BEE3D218029F100F41573 /* Core Data */,
 				9C73C6F1217A7F5000ACCBC8 /* Table View Data Source */,
@@ -168,6 +178,7 @@
 		9C73C6C9217A6B0600ACCBC8 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				9CA89B822183E29A00A7DA3B /* ErrorHandler.storyboard */,
 				9C73C6CA217A6B4400ACCBC8 /* Main.storyboard */,
 				9C73C6C0217A6A4300ACCBC8 /* LaunchScreen.storyboard */,
 			);
@@ -185,8 +196,8 @@
 		9C73C6D2217A6C6E00ACCBC8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9C73C6D3217A6C8C00ACCBC8 /* SourcesController.swift */,
-				9C73C6D5217A6CBC00ACCBC8 /* SourceNewsController.swift */,
+				9CA89B8B2183E8EE00A7DA3B /* Error Scene */,
+				9CA89B8A2183E8D900A7DA3B /* Main Scene */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,6 +256,39 @@
 				9CB862682182C99A00B3EB78 /* AppSettings.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		9CA89B7D2183D42C00A7DA3B /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				9CA89B8E2183EC9600A7DA3B /* Reachability.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		9CA89B872183E3F500A7DA3B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9CA89B882183E41200A7DA3B /* UIColor+Utils.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9CA89B8A2183E8D900A7DA3B /* Main Scene */ = {
+			isa = PBXGroup;
+			children = (
+				9C73C6D3217A6C8C00ACCBC8 /* SourcesController.swift */,
+				9C73C6D5217A6CBC00ACCBC8 /* SourceNewsController.swift */,
+			);
+			path = "Main Scene";
+			sourceTree = "<group>";
+		};
+		9CA89B8B2183E8EE00A7DA3B /* Error Scene */ = {
+			isa = PBXGroup;
+			children = (
+				9CA89B852183E34300A7DA3B /* ErrorHandlerController.swift */,
+			);
+			path = "Error Scene";
 			sourceTree = "<group>";
 		};
 		9CB8626021810C5F00B3EB78 /* Adapter */ = {
@@ -326,6 +370,7 @@
 				9C73C6CC217A6B4400ACCBC8 /* Main.storyboard in Resources */,
 				9C73C6C2217A6A4300ACCBC8 /* LaunchScreen.storyboard in Resources */,
 				9C73C6D1217A6BEF00ACCBC8 /* Assets.xcassets in Resources */,
+				9CA89B842183E29A00A7DA3B /* ErrorHandler.storyboard in Resources */,
 				9C73C6FA217A833900ACCBC8 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,13 +424,16 @@
 				9C73C6E8217A7E6600ACCBC8 /* WebContent.swift in Sources */,
 				9C2BEE3C218028D500F41573 /* FavoriteService.swift in Sources */,
 				9C2BEE51218032E400F41573 /* FavoriteArticle+CoreDataClass.swift in Sources */,
+				9CA89B862183E34300A7DA3B /* ErrorHandlerController.swift in Sources */,
 				9C73C6D6217A6CBC00ACCBC8 /* SourceNewsController.swift in Sources */,
 				9C73C6F0217A7F1700ACCBC8 /* NewsTableViewCell.swift in Sources */,
 				9CB86267218235AE00B3EB78 /* SourceNewsFactory.swift in Sources */,
 				9C63B5DD217D02F6002D423B /* ArticleViewModel.swift in Sources */,
 				9C73C6E2217A7DCE00ACCBC8 /* WebService.swift in Sources */,
 				9C73C6E9217A7E6600ACCBC8 /* Source.swift in Sources */,
+				9CA89B892183E41200A7DA3B /* UIColor+Utils.swift in Sources */,
 				9C2BEE52218032E400F41573 /* FavoriteArticle+CoreDataProperties.swift in Sources */,
+				9CA89B8F2183EC9600A7DA3B /* Reachability.swift in Sources */,
 				9C73C6D4217A6C8C00ACCBC8 /* SourcesController.swift in Sources */,
 				9C73C6EF217A7F1700ACCBC8 /* SourceTableViewCell.swift in Sources */,
 				9C73C6DD217A7D4500ACCBC8 /* SourceViewModel.swift in Sources */,
@@ -418,6 +466,14 @@
 				9C73C6CB217A6B4400ACCBC8 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9CA89B822183E29A00A7DA3B /* ErrorHandler.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CA89B832183E29A00A7DA3B /* Base */,
+			);
+			name = ErrorHandler.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

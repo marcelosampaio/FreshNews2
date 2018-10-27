@@ -131,6 +131,7 @@
                         <outlet property="noContentView" destination="Aah-bE-vOi" id="87i-AY-aWN"/>
                         <segue destination="Rke-kl-WJr" kind="show" identifier="showSourceNews" id="fSO-EE-UYr"/>
                         <segue destination="Rke-kl-WJr" kind="show" identifier="showFavorites" id="0uU-6e-dgx"/>
+                        <segue destination="u25-VL-1HV" kind="presentation" identifier="showErrorHandler" modalTransitionStyle="crossDissolve" id="i7x-7e-nlo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HL1-DS-dqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,6 +155,14 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1717.5" y="175.35211267605635"/>
+        </scene>
+        <!--ErrorHandler-->
+        <scene sceneID="vkk-p7-GCK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ErrorHandler" id="u25-VL-1HV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mL-UE-Kz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2378" y="-277"/>
         </scene>
         <!--Title-->
         <scene sceneID="5zJ-aP-flR">

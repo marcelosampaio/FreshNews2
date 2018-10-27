@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+// reachability
+var reachability = Reachability(hostname: "www.apple.com")
+
 class SourcesController: UITableViewController {
     
     // MARK: - Properties
@@ -38,6 +41,7 @@ class SourcesController: UITableViewController {
         self.navigationItem.title = "News Feed"
         self.tableView.estimatedRowHeight = CGFloat(190)
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.observerManager()
         self.setNoContent(msg: "Loading...")
         self.setActivityIndicator(show: true)
         
@@ -123,6 +127,42 @@ class SourcesController: UITableViewController {
             controller.source = dummySource
         }
         
+    }
+    
+    
+    // MARK: - Observers
+    private func observerManager() {
+        
+        //
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reachabilityStatusChanged(_:)),
+                                               name: NSNotification.Name(rawValue: "ReachabilityChangedNotification"),
+                                               object: nil)
+        
+        
+        
+    }
+    
+    // observer actions
+    // rawValue: ReachabilityChangedNotification)
+    @objc private func reachabilityStatusChanged(_ sender: NSNotification) {
+        
+        guard ((sender.object as? Reachability)?.currentReachabilityStatus) != nil else { return }
+        
+        checkInternetStatus()
+        
+    }
+    
+    private func checkInternetStatus() {
+        print("🌎 will check internet status ")
+        if !reachability.isReachable() {
+            AppSettings.standard.updateInternetConnectionStatus(false)
+            performSegue(withIdentifier: "showErrorHandler", sender: self)
+        }else{
+            AppSettings.standard.updateInternetConnectionStatus(true)
+            // post notification to error hanlder to dismiss UI
+            NotificationCenter.default.post(name: Notification.Name("didConnectToInternet"), object: nil, userInfo: nil)
+        }
     }
 
 }
