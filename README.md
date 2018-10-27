@@ -1,6 +1,6 @@
 # FreshNews2
 
-This is an open source project and you are welcome to colaborate!
+This is an open source project and you are welcome to collaborate!
 
   • MVVM
   
