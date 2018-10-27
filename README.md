@@ -6,7 +6,7 @@ This is an open source project and you are welcome to collaborate!
   
   • Core Data
   
-  • Custom Network Layer
+  • Custom Networking Layer
 
   • Custom TableView Datasource
 
