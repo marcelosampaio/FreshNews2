@@ -84,18 +84,12 @@ class WebService {
                 let dataDic : NSDictionary = json as! NSDictionary
                 let news = News(dictionary: dataDic)
                 
-//                print("*** dataDic:  \(dataDic)")
-//                print("*** news: \(news)")
-//                print(".....")
-                
                 DispatchQueue.main.async {
                     completion(news.articles)
                 }
             }
             
             }.resume()
-        
-        
     }
     
     

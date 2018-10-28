@@ -48,6 +48,9 @@ class SourcesController: UITableViewController {
         // Core Data Mnaged Object
         AppSettings.standard.moc = self.moc
         
+        // Check internet status
+        checkInternetStatus()
+        
         // load app data
         loadAppData()
     }
@@ -64,8 +67,7 @@ class SourcesController: UITableViewController {
                 cell.sourceDate.text = vm.country
             })
             self.prepareToReloadData()
-        })
-        
+        })   
     }
     
     // MARK: - UI Action
@@ -154,7 +156,6 @@ class SourcesController: UITableViewController {
     }
     
     private func checkInternetStatus() {
-        print("🌎 will check internet status ")
         if !reachability.isReachable() {
             AppSettings.standard.updateInternetConnectionStatus(false)
             performSegue(withIdentifier: "showErrorHandler", sender: self)
