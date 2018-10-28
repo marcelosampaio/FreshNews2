@@ -161,6 +161,9 @@ class SourcesController: UITableViewController {
             performSegue(withIdentifier: "showErrorHandler", sender: self)
         }else{
             AppSettings.standard.updateInternetConnectionStatus(true)
+            self.setNoContent(msg: "Loading...")
+            self.setActivityIndicator(show: true)
+            loadAppData()
             // post notification to error hanlder to dismiss UI
             NotificationCenter.default.post(name: Notification.Name("didConnectToInternet"), object: nil, userInfo: nil)
         }
