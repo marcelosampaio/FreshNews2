@@ -6,9 +6,9 @@
 //  Copyright © 2018 Marcelo. All rights reserved.
 //
 //  Version: 1.0
-//  -------------------------------------------
-//  Remarks: Before Core Data for Favorite News
-//  -------------------------------------------
+//  ------------------------------------------------------------
+//  Remarks: Before Continents/Countries filters for Source News
+//  ------------------------------------------------------------
 //
 
 
