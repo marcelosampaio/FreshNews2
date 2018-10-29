@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Continent" representedClassName="Continent" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="countries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Country" inverseName="continent" inverseEntity="Country" syncable="YES"/>
+    </entity>
+    <entity name="Country" representedClassName="Country" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="continent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Continent" inverseName="countries" inverseEntity="Continent" syncable="YES"/>
+    </entity>
     <entity name="FavoriteArticle" representedClassName="FavoriteArticle" syncable="YES">
         <attribute name="articleDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,6 +19,8 @@
         <attribute name="urlToImage" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FavoriteArticle" positionX="1746.19140625" positionY="-3300.09375" width="128" height="135"/>
+        <element name="FavoriteArticle" positionX="1572.91796875" positionY="-3295.49609375" width="128" height="135"/>
+        <element name="Country" positionX="1746.30859375" positionY="-3142.1171875" width="128" height="90"/>
+        <element name="Continent" positionX="1570.92578125" positionY="-3142.62890625" width="128" height="90"/>
     </elements>
 </model>
