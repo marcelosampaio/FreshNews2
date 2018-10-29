@@ -34,7 +34,7 @@
 		9CA89B842183E29A00A7DA3B /* ErrorHandler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CA89B822183E29A00A7DA3B /* ErrorHandler.storyboard */; };
 		9CA89B862183E34300A7DA3B /* ErrorHandlerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA89B852183E34300A7DA3B /* ErrorHandlerController.swift */; };
 		9CA89B892183E41200A7DA3B /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA89B882183E41200A7DA3B /* UIColor+Utils.swift */; };
-		9CA89B912183ED3900A7DA3B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA89B902183ED3900A7DA3B /* Reachability.swift */; };
+		9CB663F821879BDD00AEA052 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB663F721879BDD00AEA052 /* Reachability.swift */; };
 		9CB8626221810C9A00B3EB78 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8626121810C9A00B3EB78 /* Adapter.swift */; };
 		9CB86267218235AE00B3EB78 /* SourceNewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB86266218235AE00B3EB78 /* SourceNewsFactory.swift */; };
 		9CB862692182C99A00B3EB78 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB862682182C99A00B3EB78 /* AppSettings.swift */; };
@@ -72,7 +72,7 @@
 		9CA89B832183E29A00A7DA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ErrorHandler.storyboard; sourceTree = "<group>"; };
 		9CA89B852183E34300A7DA3B /* ErrorHandlerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerController.swift; sourceTree = "<group>"; };
 		9CA89B882183E41200A7DA3B /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
-		9CA89B902183ED3900A7DA3B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../../../../../Reachability.swift; sourceTree = "<group>"; };
+		9CB663F721879BDD00AEA052 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9CB8626121810C9A00B3EB78 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		9CB86266218235AE00B3EB78 /* SourceNewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceNewsFactory.swift; sourceTree = "<group>"; };
 		9CB862682182C99A00B3EB78 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		9C73C6B6217A6A3C00ACCBC8 /* FreshNews2 */ = {
 			isa = PBXGroup;
 			children = (
+				9CB663F621879BC500AEA052 /* Reachability */,
 				9CA89B872183E3F500A7DA3B /* Extension */,
-				9CA89B7D2183D42C00A7DA3B /* Reachability */,
 				9CB8626021810C5F00B3EB78 /* Adapter */,
 				9C2BEE3D218029F100F41573 /* Core Data */,
 				9C73C6F1217A7F5000ACCBC8 /* Table View Data Source */,
@@ -258,14 +258,6 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		9CA89B7D2183D42C00A7DA3B /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				9CA89B902183ED3900A7DA3B /* Reachability.swift */,
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
 		9CA89B872183E3F500A7DA3B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +281,14 @@
 				9CA89B852183E34300A7DA3B /* ErrorHandlerController.swift */,
 			);
 			path = "Error Scene";
+			sourceTree = "<group>";
+		};
+		9CB663F621879BC500AEA052 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				9CB663F721879BDD00AEA052 /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		9CB8626021810C5F00B3EB78 /* Adapter */ = {
@@ -444,7 +444,7 @@
 				9CB862692182C99A00B3EB78 /* AppSettings.swift in Sources */,
 				9C63B5D7217CC227002D423B /* News.swift in Sources */,
 				9C73C6B8217A6A3C00ACCBC8 /* AppDelegate.swift in Sources */,
-				9CA89B912183ED3900A7DA3B /* Reachability.swift in Sources */,
+				9CB663F821879BDD00AEA052 /* Reachability.swift in Sources */,
 				9C63B5DB217D02E3002D423B /* ArticlesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
