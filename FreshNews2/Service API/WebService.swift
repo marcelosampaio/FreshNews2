@@ -15,6 +15,7 @@ class WebService {
     func getNewsSources(completion: @escaping (WebContent) -> ()) {
         // get url
         let url = URL(string: WebService.getEndpoint("getSources"))
+        print("🌍 source url: \(String(describing: url?.absoluteString))")
         
         // request web service
         URLSession.shared.dataTask(with: url!) {
@@ -57,7 +58,7 @@ class WebService {
         urlString = urlString.replacingOccurrences(of: "[APIKEY]", with: apiKey)
         
         let url = URL(string: urlString)
-        
+        print("🌍 articles url: \(String(describing: url?.absoluteString))")
         
         // request web service
 
