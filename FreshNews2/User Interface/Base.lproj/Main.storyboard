@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h4f-8c-1uv">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h4f-8c-1uv">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,10 +17,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="190" id="Gne-7l-V43" customClass="SourceTableViewCell" customModule="FreshNews2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="190"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="190"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gne-7l-V43" id="22h-4x-Bw6">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="189.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noContentIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eLz-WD-v4a">
@@ -106,7 +104,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="cno-80-Sqw">
                             <view key="customView" contentMode="scaleToFill" id="gDn-Yz-ePD">
-                                <rect key="frame" x="221" y="5.5" width="83" height="33"/>
+                                <rect key="frame" x="221" y="8.5" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rPo-8o-Wb9">
@@ -131,7 +129,7 @@
                         <outlet property="noContentView" destination="Aah-bE-vOi" id="87i-AY-aWN"/>
                         <segue destination="Rke-kl-WJr" kind="show" identifier="showSourceNews" id="fSO-EE-UYr"/>
                         <segue destination="Rke-kl-WJr" kind="show" identifier="showFavorites" id="0uU-6e-dgx"/>
-                        <segue destination="u25-VL-1HV" kind="presentation" identifier="showErrorHandler" modalTransitionStyle="crossDissolve" id="i7x-7e-nlo"/>
+                        <segue destination="u25-VL-1HV" kind="presentation" identifier="showErrorHandler" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="i7x-7e-nlo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HL1-DS-dqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,10 +172,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="475" id="wWS-gb-2JR" customClass="NewsTableViewCell" customModule="FreshNews2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="475"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="475"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wWS-gb-2JR" id="zPh-oF-lGl">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="474.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noContentIcon" translatesAutoresizingMaskIntoConstraints="NO" id="MXT-1g-7yy">
@@ -271,7 +269,7 @@
                     <navigationItem key="navigationItem" title="Title" id="duB-ma-Zce">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="pkn-rp-ozf">
                             <view key="customView" contentMode="scaleToFill" id="orS-is-KSx">
-                                <rect key="frame" x="233" y="5.5" width="71" height="33"/>
+                                <rect key="frame" x="233" y="8.5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TKG-bZ-BlQ">
@@ -325,7 +323,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h4f-8c-1uv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="4fY-Oe-ykW">
-                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -338,12 +336,12 @@
             <point key="canvasLocation" x="778.39999999999998" y="175.86206896551727"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0uU-6e-dgx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="favoriteNo" width="25" height="23"/>
         <image name="noContentIcon" width="512" height="512"/>
         <image name="share2" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="0uU-6e-dgx"/>
-    </inferredMetricsTieBreakers>
 </document>

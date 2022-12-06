@@ -1,5 +1,5 @@
 //
-//  SourcesController.swift
+//  SourcesView.swift
 //  FreshNews2
 //
 //  Created by Marcelo on 19/10/18.
@@ -12,7 +12,7 @@ import CoreData
 // reachability
 var reachability = Reachability(hostname: "www.apple.com")
 
-class SourcesController: UITableViewController {
+class SourcesView: UITableViewController {
     
     // MARK: - Properties
     public var moc : NSManagedObjectContext? {
@@ -115,14 +115,14 @@ class SourcesController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showSourceNews" {
-            let controller = segue.destination as! SourceNewsController
+            let controller = segue.destination as! SourceNewsView
             let indexPath = tableView.indexPathForSelectedRow
             var selectedSource : SourceViewModel!
             selectedSource = sources.sources[indexPath!.row]
             controller.source = selectedSource
             controller.selectedProviderType = ProviderType.web
         }else if segue.identifier == "showFavorites" {
-            let controller = segue.destination as! SourceNewsController
+            let controller = segue.destination as! SourceNewsView
             controller.selectedProviderType = ProviderType.database
             let dummySource : SourceViewModel! = SourceViewModel(source: Source(dictionary: NSDictionary()))
             dummySource.category = ""

@@ -1,5 +1,5 @@
 //
-//  ErrorHandlerController.swift
+//  ErrorHandlerView.swift
 //  FreshNews2
 //
 //  Created by Marcelo on 26/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ErrorHandlerController: UIViewController {
+class ErrorHandlerView: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var refreshButton: UIButton!

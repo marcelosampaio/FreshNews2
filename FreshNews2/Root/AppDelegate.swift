@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Global Tint Color
@@ -28,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Core Data
         let navigationVC = window?.rootViewController as? UINavigationController
-        let sourcesController = navigationVC?.viewControllers.first as! SourcesController
-        sourcesController.moc = persistentContainer.viewContext
+        let sourcesView = navigationVC?.viewControllers.first as! SourcesView
+        sourcesView.moc = persistentContainer.viewContext
         
         // reachability
         reachability = Reachability.reachabilityForInternetConnection()

@@ -1,5 +1,5 @@
 //
-//  SourceNewsController.swift
+//  SourceNewsView.swift
 //  FreshNews2
 //
 //  Created by Marcelo on 19/10/18.
@@ -12,7 +12,7 @@ import CoreData
 import Kingfisher
 
 
-class SourceNewsController: UITableViewController, NewsTableViewCellProtocol {
+class SourceNewsView: UITableViewController, NewsTableViewCellProtocol {
     
     // MARK: - Properties
     public var selectedProviderType : ProviderType = ProviderType.web
